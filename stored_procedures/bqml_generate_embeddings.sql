@@ -38,7 +38,7 @@
 -- INT64 termination_time_secs : The maximum time (in seconds) the script should run before terminating. Defaults to 82800 (23 hours).
 -- STRING source_filter : An optional filter applied as a SQL WHERE clause to the source table before processing. Defaults to 'TRUE'.
 -- ARRAY<STRING> projection_columns : An array of column to copy from the source table into the destination table. Defaults to all columns ('*').
--- STRING ml_options : A JSON string representing additional options for the ML operation. Defaults to 'STRUCT(TRUE AS flatten_json_output)' which flattens JSON output.
+-- STRING ml_options : A JSON string representing additional struct options defined in ML.GENERATE_EMBEDDING. Must be of the form 'STRUCT(...)' 
 CREATE OR REPLACE PROCEDURE `bqutil.procedure.bqml_generate_embeddings`(source_table STRING, target_table STRING, ml_model STRING, content_column STRING, key_columns ARRAY<STRING>, options_string STRING)
 BEGIN
 
